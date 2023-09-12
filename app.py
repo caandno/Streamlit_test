@@ -17,8 +17,8 @@ def main():
     current_time = datetime.now()
     
     times = [
-        ("Surdej friskes opp", 5, 0),
-        ("Dej samles", 3, 0),
+        ("Surdej friskes opp", 1, 0),
+        ("Dej samles", 1 0),
         ("Sett i ovnen", 1, 20),
         ("Brød ferdig", 0, 0)
     ]
