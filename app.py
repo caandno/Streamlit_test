@@ -1,34 +1,27 @@
 import streamlit as st
 from datetime import datetime, timedelta
 
-# Function to calculate time based on input hours and minutes
-def calculate_time(start_time, hours, minutes):
-    start_datetime = datetime.combine(datetime.today(), start_time)
-    target_time = start_datetime + timedelta(hours=hours, minutes=minutes)
-    return target_time.strftime("%H:%M:%S")
-
+# Define the Streamlit app
 def main():
-    st.title("Bread Baking Timer")
+    st.title("Bread Baking Time Calculator")
 
-    # Allow the user to pick the start time
-    start_time = st.time_input("Choose a start time:", value=(datetime.now() + timedelta(minutes=10)).time())
+    # Get the user's input time
+    input_time = st.time_input("Enter a time:")
 
-    # Calculate times based on the selected start time and the current time
-    current_time = datetime.now()
-    
-    times = [
-        ("Surdej friskes opp", 5, 0),
-        ("Dej samles", 7, 0),
-        ("Sett i ovnen", 1, 20),
-        ("Brød ferdig", 0, 0)
-    ]
+    if input_time:
+        input_datetime = datetime.combine(datetime.today(), input_time)
 
-    for label, hours, minutes in times:
-        target_time = calculate_time(start_time, hours, minutes)
-        display_time = current_time + timedelta(hours=hours, minutes=minutes)
-        st.write(f"{label}: {display_time.strftime('%H:%M:%S')}")
+        # Calculate times with labels
+        times = [
+            ("Surdej friskes opp", input_datetime + timedelta(hours=18)),
+            ("Dej samles", input_datetime + timedelta(hours=21)),
+            ("Sett i ovnen", input_datetime + timedelta(hours=22, minutes=20)),
+            ("Brød ferdig", input_datetime + timedelta(hours=22, minutes=20)),
+        ]
 
-    st.write(f"Current Time: {current_time.strftime('%H:%M:%S')}")
+        st.write("#### Times:")
+        for label, time in times:
+            st.write(f"- {label}: {time.strftime('%H:%M')}")
 
 if __name__ == "__main__":
     main()
