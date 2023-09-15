@@ -5,8 +5,7 @@ import platform
 # Define the Streamlit app
 def main():
     st.title(":bread: Brød beregneren :cookie:")
-    #platform = platform.system()
-    st.write("platform")
+    st.write(platform.system())
     
 
     # Get the user's input time
