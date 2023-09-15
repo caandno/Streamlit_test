@@ -6,6 +6,10 @@ import platform
 def main():
     st.title(":bread: Brød beregneren :cookie:")
     st.write(platform.system())
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6e9d6baff04c8f50f4a75d8d35d1fc7c73077b06
 
     # Get the user's input time
     input_time = st.time_input("Vælg et start tidspunkt:")
