@@ -5,8 +5,9 @@ from datetime import datetime, timedelta
 def main():
     st.title(":bread: Brød beregneren :cookie:")
 
+    mobile_time= datetime.now() + timedelta(hours=2)
     # Get the user's input time
-    input_time = st.time_input("Vælg et start tidspunkt:")
+    input_time = st.time_input("Vælg et start tidspunkt:",value=mobile_time)
 
     if input_time:
         input_datetime = datetime.combine(datetime.today(), input_time)
