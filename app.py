@@ -6,7 +6,7 @@ import platform
 def main():
     st.title(":bread: Brød beregneren :cookie:")
     platform = platform.system()
-    platform
+    st.write(platform)
     
 
     # Get the user's input time
