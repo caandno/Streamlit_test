@@ -1,9 +1,13 @@
 import streamlit as st
 from datetime import datetime, timedelta
+import platform
 
 # Define the Streamlit app
 def main():
     st.title(":bread: Brød beregneren :cookie:")
+    platform = platform.system()
+    platform
+    
 
     # Get the user's input time
     input_time = st.time_input("Vælg et start tidspunkt:")
