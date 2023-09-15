@@ -1,16 +1,18 @@
 import streamlit as st
 from datetime import datetime, timedelta
+import platform
 
 # Define the Streamlit app
 def main():
     st.title(":bread: Brød beregneren :cookie:")
+    st.write(platform.system())
 
     # Get the user's input time
     input_time = st.time_input("Vælg et start tidspunkt:")
 
     if input_time:
-        input_datetime = datetime.combine(datetime.today(), input_time)
-
+        # input_datetime = datetime.combine(datetime.today(), input_time)
+        input_datetime = input_time
         # Calculate times with labels
         times = [
             ("Surdej friskes opp", input_datetime + timedelta(hours=0, minutes=0),input_datetime + timedelta(hours=0, minutes=0)),
